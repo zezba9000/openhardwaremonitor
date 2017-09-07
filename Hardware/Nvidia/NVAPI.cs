@@ -236,43 +236,43 @@ namespace OpenHardwareMonitor.Hardware.Nvidia {
     public static readonly uint GPU_COOLER_LEVELS_VER = (uint)
       Marshal.SizeOf(typeof(NvGPUCoolerLevels)) | 0x10000;
 
-    private delegate IntPtr nvapi_QueryInterfaceDelegate(uint id);
-    private delegate NvStatus NvAPI_InitializeDelegate();
-    private delegate NvStatus NvAPI_GPU_GetFullNameDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate IntPtr nvapi_QueryInterfaceDelegate(uint id);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate NvStatus NvAPI_InitializeDelegate();
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate NvStatus NvAPI_GPU_GetFullNameDelegate(
       NvPhysicalGpuHandle gpuHandle, StringBuilder name);
 
-    public delegate NvStatus NvAPI_GPU_GetThermalSettingsDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetThermalSettingsDelegate(
       NvPhysicalGpuHandle gpuHandle, int sensorIndex,
       ref NvGPUThermalSettings nvGPUThermalSettings);
-    public delegate NvStatus NvAPI_EnumNvidiaDisplayHandleDelegate(int thisEnum,
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_EnumNvidiaDisplayHandleDelegate(int thisEnum,
       ref NvDisplayHandle displayHandle);
-    public delegate NvStatus NvAPI_GetPhysicalGPUsFromDisplayDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GetPhysicalGPUsFromDisplayDelegate(
       NvDisplayHandle displayHandle, [Out] NvPhysicalGpuHandle[] gpuHandles,
       out uint gpuCount);
-    public delegate NvStatus NvAPI_EnumPhysicalGPUsDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_EnumPhysicalGPUsDelegate(
       [Out] NvPhysicalGpuHandle[] gpuHandles, out int gpuCount);
-    public delegate NvStatus NvAPI_GPU_GetTachReadingDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetTachReadingDelegate(
       NvPhysicalGpuHandle gpuHandle, out int value);
-    public delegate NvStatus NvAPI_GPU_GetAllClocksDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetAllClocksDelegate(
       NvPhysicalGpuHandle gpuHandle, ref NvClocks nvClocks);
-    public delegate NvStatus NvAPI_GPU_GetPStatesDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetPStatesDelegate(
       NvPhysicalGpuHandle gpuHandle, ref NvPStates nvPStates);
-    public delegate NvStatus NvAPI_GPU_GetUsagesDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetUsagesDelegate(
       NvPhysicalGpuHandle gpuHandle, ref NvUsages nvUsages);
-    public delegate NvStatus NvAPI_GPU_GetCoolerSettingsDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetCoolerSettingsDelegate(
       NvPhysicalGpuHandle gpuHandle, int coolerIndex,
       ref NvGPUCoolerSettings nvGPUCoolerSettings);
-    public delegate NvStatus NvAPI_GPU_SetCoolerLevelsDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_SetCoolerLevelsDelegate(
       NvPhysicalGpuHandle gpuHandle, int coolerIndex,
       ref NvGPUCoolerLevels NvGPUCoolerLevels);
-    public delegate NvStatus NvAPI_GPU_GetMemoryInfoDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetMemoryInfoDelegate(
       NvDisplayHandle displayHandle, ref NvMemoryInfo nvMemoryInfo);
-    public delegate NvStatus NvAPI_GetDisplayDriverVersionDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GetDisplayDriverVersionDelegate(
       NvDisplayHandle displayHandle, [In, Out] ref NvDisplayDriverVersion
       nvDisplayDriverVersion);
-    public delegate NvStatus NvAPI_GetInterfaceVersionStringDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GetInterfaceVersionStringDelegate(
       StringBuilder version);
-    public delegate NvStatus NvAPI_GPU_GetPCIIdentifiersDelegate(
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] public delegate NvStatus NvAPI_GPU_GetPCIIdentifiersDelegate(
       NvPhysicalGpuHandle gpuHandle, out uint deviceId, out uint subSystemId, 
       out uint revisionId, out uint extDeviceId);
 
